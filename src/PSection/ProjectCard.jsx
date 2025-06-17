@@ -38,7 +38,7 @@ const ProjectCard = () => {
             <div className="h-40 overflow-hidden rounded-t-xl">
               <img
                 className="w-full h-full object-contain pt-2"
-                src={project.img_URL || "./public/asset/logos/javascript.png"}
+                src={project.img_URL || "./asset/logos/image1.png"}
                 alt="project logo"
               />
             </div>
