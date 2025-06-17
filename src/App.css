@@ -1,0 +1,33 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin {
+  animation: spin linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse linear infinite;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+};
+
+
