@@ -24,7 +24,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full text-white overflow-hidden bg-blue-950">
+    <div className="relative h-screen w-full text-white overflow-hidden bg-blue-950">
       <div className="absolute inset-0 z-0">
         <Canvas style={{ pointerEvents: "none" }}>
           <Stars
@@ -60,7 +60,7 @@ const Skills = () => {
 
         {/* Tech Stack Card */}
         {!newPage && (
-          <div className="pl-10 pt-20 w-full flex flex-col">
+          <div className="pl-10 pt-10 w-full flex flex-col">
             <div className="border border-white rounded-lg shadow-lg p-4 w-[40%] bg-black/30 backdrop-blur-md">
               <h1 className="font-extrabold w-full md:w-[60%]
               cursor-pointer text-5xl text-yellow-400 hover:animate-pulse">

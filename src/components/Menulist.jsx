@@ -1,24 +1,74 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import BarMenu from './BarMenu';
 
 const Menulist = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
+
+  // Handle screen resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 800);
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleMenu = () => {
+    setShowMenu((prev) => !prev);
+  };
+
   return (
-    <div className="w-full">
-      <ul className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-20 uppercase text-white">
-        <li className="font-medium text-lg md:text-xl cursor-pointer hover:text-gray-400">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="font-medium text-lg md:text-xl cursor-pointer hover:text-gray-400">
-          <Link to="/about">About Us</Link>
-        </li>
-        <li className="font-medium text-lg md:text-xl cursor-pointer hover:text-gray-400">
-          <Link to="/skill">Skills</Link>
-        </li>
-        <li className="font-medium text-lg md:text-xl cursor-pointer hover:text-gray-400">
-          <Link to="/interactive-page">Interactive Page</Link>
-        </li>
-      </ul>
-    </div>
+    <>
+      {/* Bar Menu Toggle Button */}
+      {isMobile && (
+        <div className="fixed top-4 right-4 z-50">
+          <BarMenu showMenu={showMenu} toggleMenu={toggleMenu} />
+        </div>
+      )}
+
+      {/* Main Menu */}
+      {!isMobile && (
+        <div className="w-full">
+          <ul className="flex justify-center items-center gap-10 uppercase text-white">
+            <li className="font-medium text-lg md:text-xl cursor-pointer hover:text-gray-400">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="font-medium text-lg md:text-xl cursor-pointer hover:text-gray-400">
+              <Link to="/about">About Us</Link>
+            </li>
+            <li className="font-medium text-lg md:text-xl cursor-pointer hover:text-gray-400">
+              <Link to="/skill">Skills</Link>
+            </li>
+            <li className="font-medium text-lg md:text-xl cursor-pointer hover:text-gray-400">
+              <Link to="/interactive-page">Interactive Page</Link>
+            </li>
+          </ul>
+        </div>
+      )}
+
+      {/* Mobile Menu (when BarMenu is clicked) */}
+      {isMobile && showMenu && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 flex justify-center items-center z-40 transition-all duration-500">
+          <ul className="flex flex-col gap-8 text-white text-2xl uppercase text-center">
+            <li className="cursor-pointer hover:text-gray-400" onClick={toggleMenu}>
+              <Link to="/">Home</Link>
+            </li>
+            <li className="cursor-pointer hover:text-gray-400" onClick={toggleMenu}>
+              <Link to="/about">About Us</Link>
+            </li>
+            <li className="cursor-pointer hover:text-gray-400" onClick={toggleMenu}>
+              <Link to="/skill">Skills</Link>
+            </li>
+            <li className="cursor-pointer hover:text-gray-400" onClick={toggleMenu}>
+              <Link to="/interactive-page">Interactive Page</Link>
+            </li>
+          </ul>
+        </div>
+      )}
+    </>
   );
 };
 

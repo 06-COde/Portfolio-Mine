@@ -35,10 +35,10 @@ const Marquee = () => {
   }, []);
 
   const skillsRow1 = [
-    "HTML5", "CSS3", "JAVASCRIPT", "REACT", "TAILWINDCSS", "REDUX", "NODEJS", "EXPRESSJS",
+    "HTML5", "CSS3", "JAVASCRIPT", "REACTJS", "TAILWINDCSS", "REDUX", "NODEJS",
   ];
   const skillsRow2 = [
-    "THREEJS", "GSAP", "FRAMER MOTION", "GIT", "GITHUB", "MONGODB",
+    "THREEJS", "GSAP", "FRAMER MOTION", "GIT", "GITHUB", "MONGODB", "EXPRESSJS"
   ];
 
   return (

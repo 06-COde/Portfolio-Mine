@@ -33,7 +33,7 @@ const Loader = () => {
             animate={{ height: "0%" }}
             transition={{
               delay: 0.6,
-              duration: 1.5,
+              duration: 2.5,
               ease: [0.77, 0, 0.175, 1],
             }}
           />
