@@ -13,11 +13,11 @@ const Title = () => {
 
   return (
     <div className="flex flex-col items-center w-full">
-      <div className="min-h-screen w-full bg-transparent text-black pt-20 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-12">
+      <div className="min-h-screen w-full bg-transparent pt-20 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-12">
         {/* Name Heading */}
         <h1
           className="glow-text text-center select-none font-bold leading-tight tracking-widest
-          text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+          text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"  
         >
           SHASHI RAJ
         </h1>
