@@ -2,9 +2,8 @@
   background: linear-gradient(90deg, #ffffff, #e100ff, #00c3ff);
   background-clip: text;
   -webkit-background-clip: text;
-  /* color: transparent; */
-  color: #ffffff ;/* ✅ fix: ensures text is visible with background-clip */
-  -webkit-text-fill-color: #ffffff; /* ✅ for Safari support */
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff; /* ✅ Safari */
   text-shadow:
     0 0 5px #7b0fe7,
     0 0 10px #e100ff,
@@ -12,21 +11,30 @@
     0 0 40px #7f00ff,
     0 0 60px #571160;
   animation: glowPulseGalaxy 2.5s ease-in-out infinite alternate;
-  letter-spacing: 1.8rem;
+  letter-spacing: 0.2em;
+  text-align: center;
+  word-break: break-word;
 }
 
-/* Galaxy-style scattered text */
+/* Responsive fallback for small screens */
+@media (max-width: 768px) {
+  .glow-text {
+    font-size: 2.5rem !important;
+    letter-spacing: 0.15em;
+  }
+}
+
 .frontend-scatter {
   width: max-content;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   font-weight: 500;
   font-size: 1.55rem;
   background: linear-gradient(90deg, #7f00ff, #e100ff, #00c3ff);
   background-clip: text;
   -webkit-background-clip: text;
   color: #ffffff;
-  /* color: transparent; ✅ */
   -webkit-text-fill-color: #ffffff;
   text-shadow:
     0 0 3px #e100ff,
@@ -34,6 +42,7 @@
     0 0 9px #7f00ff;
   animation: glowPulseGalaxy 2.5s ease-in-out infinite alternate;
   user-select: none;
+  text-align: center;
 }
 
 .letter {
