@@ -24,7 +24,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <div className="relative h-[100%] w-full text-white overflow-hidden bg-blue-950">
+    <div className="relative min-h-screen w-full text-white overflow-hidden bg-blue-950">
       <div className="absolute inset-0 z-0">
         <Canvas style={{ pointerEvents: "none" }}>
           <Stars
