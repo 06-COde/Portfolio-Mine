@@ -3,16 +3,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import ProjectModal from "./ProjectModal";
 import { project_Data_URL } from "../utils/constants";
+import Shimmer from "../components/Shimmer";
 
 const ProjectCard = () => {
   const [modal, setModal] = useState(null);
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchApi = async () => {
     const data = await fetch(project_Data_URL);
     const json = await data.json();
     console.log(json);
     setProjects(json);
+    setLoading(false); 
   };
 
   useEffect(() => {
@@ -27,6 +30,7 @@ const ProjectCard = () => {
     }
   };
 
+   if (loading) return <Shimmer />;
   return (
     <div className="container mx-auto px-4 py-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
