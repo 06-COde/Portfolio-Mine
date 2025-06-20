@@ -46,7 +46,7 @@ const ResumeModal = ({showMenu}) => {
        </button>
   
        <img
-       src="/asset/logos/Resume.png"
+       src="/asset/logos/IMG-20250620-WA0006[1].jpg"
        alt="Resume"
        className="w-full h-auto"
        />
