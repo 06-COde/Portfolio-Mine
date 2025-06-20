@@ -1,9 +1,7 @@
 import React from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
 import Accordian from './Accordian';
 
-// Meteor component
 const Meteor = () => {
   const meteorRef = React.useRef();
 
@@ -20,17 +18,14 @@ const Meteor = () => {
   });
 
   return (
-    <mesh
-      ref={meteorRef}
-    >
+    <mesh ref={meteorRef}>
       <sphereGeometry args={[0.05, 8, 8]} />
       <meshBasicMaterial color="yellow" />
     </mesh>
   );
 };
 
-// Meteors field
-const MeteorsField = ({ count = 50 }) => (
+const MeteorsField = ({ count = 100 }) => (
   <>
     {Array.from({ length: count }).map((_, i) => (
       <Meteor key={i} />
@@ -40,8 +35,8 @@ const MeteorsField = ({ count = 50 }) => (
 
 const About3dWithAccordian = () => {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      {/* 3D meteors background */}
+    <div className="relative w-full h-full min-h-[500px] overflow-hidden">
+      {/* Canvas BG */}
       <Canvas
         camera={{ position: [1, 2, 8], fov: 60 }}
         style={{
@@ -50,20 +45,16 @@ const About3dWithAccordian = () => {
           left: 0,
           width: '100%',
           height: '100%',
+          pointerEvents: 'none',
         }}
       >
         <ambientLight intensity={1} />
-        <directionalLight position={[10, 10, 10]} intensity={5} />
+        <directionalLight position={[10, 10, 10]} intensity={4} />
         <MeteorsField count={130} />
       </Canvas>
 
-      <div
-        className="
-          absolute top-0 left-0 w-full h-full z-10
-          flex items-center justify-center
-          bg-black bg-opacity-50 p-4
-        "
-      >
+      {/* Overlay Content */}
+      <div className="absolute top-0 left-0 w-full h-full z-10 bg-black/60 flex items-center justify-center p-4 overflow-auto">
         <div className="w-full max-w-lg">
           <Accordian />
         </div>

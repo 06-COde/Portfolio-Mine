@@ -19,7 +19,7 @@ const Canva = () => {
     setShowMenu((prev) => !prev);
   };
 
-  // 🟢 Auto-close the menu when route changes
+
   useEffect(() => {
     setShowMenu(false);
   }, [location.pathname]);
@@ -55,29 +55,27 @@ const Canva = () => {
       )}
 
       {isAboutPage && (
-        <div className="flex flex-col h-screen w-full shadow-xl relative bg-black transition-transform duration-500 ease-in-out">
-          <BarMenu showMenu={showMenu} toggleMenu={toggleMenu} />
+      <div className="flex flex-col min-h-screen w-full bg-black shadow-xl relative overflow-hidden  overflow-y-auto  transition-transform duration-500 ease-in-out">
+       <BarMenu showMenu={showMenu} toggleMenu={toggleMenu} />
 
-          <div
-            className={`flex flex-1 flex-col md:flex-row transition-transform duration-500 ease-in-out ${
-              showMenu ? 'translate-y-20' : ''
-            }`}
-          >
-            <div
-              id="about"
-              className="w-full md:w-2/4 flex-1 flex flex-col justify-center items-center bg-black/90 p-4 md:p-8"
-            >
-              <About />
-            </div>
+      <div
+        className={`flex flex-1 flex-col md:flex-row transition-transform duration-500 ease-in-out ${
+        showMenu ? 'translate-y-20' : ''
+        }`}
+      >
+      {/* About Text Section */}
+      <div className="w-full md:w-1/2 flex justify-center items-center bg-black/90 p-6">
+        <About />
+      </div>
 
-            <div
-              className="w-full md:flex-1 flex justify-center items-center text-white text-lg md:text-xl font-semibold bg-black/80"
-            >
-              <About3d />
-            </div>
-          </div>
-        </div>
-      )}
+      {/* 3D Background + Accordian */}
+      <div className="w-full md:w-1/2 relative flex justify-center items-center">
+        <About3d/>
+      </div>
+      </div>
+    </div>
+   )}
+
     </>
   );
 };

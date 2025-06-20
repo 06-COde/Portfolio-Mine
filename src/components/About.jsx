@@ -1,10 +1,9 @@
-// About.jsx
 import React from 'react';
 import { FlipWords } from './Flipword';
 
 const About = () => {
   return (
-    <div className="text-white  bg-black/50 p-4 md:p-6 rounded-lg shadow-lg max-w-full md:max-w-xl mx-auto transition duration-300 ease-in-out">
+    <div className="text-white bg-black/50 p-4 md:p-6 rounded-lg shadow-lg w-full max-w-xl transition duration-300 ease-in-out overflow-auto">
       <h1 className="text-xl md:text-2xl font-bold">
         Hi, I'm{' '}
         <span className="text-blue-400 text-2xl md:text-4xl">Shashi Raj</span>
@@ -12,7 +11,7 @@ const About = () => {
         A developer dedicated to crafting
         <div>
           <FlipWords
-            words={["Secure", "Modern", "Scalable"]}
+            words={['Secure', 'Modern', 'Scalable']}
             className="font-black text-2xl md:text-4xl text-yellow-200"
           />
           web solutions
