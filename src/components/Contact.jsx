@@ -6,6 +6,7 @@ import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const contactRef = useRef(null);
+  const formRef = useRef();
   const [theme, setTheme] = useState('dark');
   const isDark = theme === 'dark';
 
@@ -27,10 +28,13 @@ const Contact = () => {
       { opacity: 0, y: 100, scale: 0.9 },
       { opacity: 1, y: 0, scale: 1, duration: 1, ease: 'power3.out' }
     );
+
+    // Initialize EmailJS with your public key
+    emailjs.init('oNEJMJLzZFrlag4-U');
   }, []);
 
   const handleThemeToggle = () => {
-    setTheme(isDark ? 'light' : 'dark');
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
   const handleSubmit = async (e) => {
@@ -39,23 +43,21 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        'service_nmez9xg',
+        'service_ae7t8h3', // ✅ Your new Gmail service ID
         'template_ncopci9',
         {
           from_name: formData.name,
-          to_name: 'ShashiRaj',
           from_email: formData.email,
-          to_email: 'rishav.sinha477@gmail.com',
           message: formData.message,
         },
-        'oNEJMJLzZFrlag4-U'
+        'oNEJMJLzZFrlag4-U' // ✅ Your EmailJS public key
       );
 
       toast.success('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
     } catch (err) {
-      console.error('Something went wrong', err);
-      toast.error('Failed to send message. Try again later.');
+      console.error('Something went wrong:', err?.text || err);
+      toast.error(`Failed to send message. ${err?.text || ''}`);
     } finally {
       setIsLoading(false);
     }
@@ -86,7 +88,7 @@ const Contact = () => {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="mt-6 flex flex-col space-y-4">
+      <form ref={formRef} onSubmit={handleSubmit} className="mt-6 flex flex-col space-y-4">
         <div
           className={`flex items-center rounded-md px-3 py-2 border focus-within:ring-2 focus-within:ring-blue-400 ${
             isDark
