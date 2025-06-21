@@ -37,7 +37,7 @@ const ProjectCard = () => {
         {projects.map((project) => (
           <div
             key={project._id}
-            className="bg-slate-800 border border-slate-600 rounded-xl text-white shadow-md hover:shadow-xl transition transform hover:-translate-y-2 duration-300 flex flex-col"
+            className="bg-slate-800 bg-opacity-50 border border-slate-600 rounded-xl text-white shadow-md hover:shadow-xl transition transform hover:-translate-y-2 duration-300 flex flex-col"
           >
             <div className="h-40 overflow-hidden rounded-t-xl">
               <img
