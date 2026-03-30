@@ -3,7 +3,7 @@ import '../utils/title.css';
 import Menulist from './Menulist';
 
 const Title = () => {
-  const frontendText = 'FRONTEND DEVELOPER';
+  const frontendText = 'BACKEND DEVELOPER';
 
   const letters = frontendText.split('').map((char, i) => (
     <span key={i} className="letter">
